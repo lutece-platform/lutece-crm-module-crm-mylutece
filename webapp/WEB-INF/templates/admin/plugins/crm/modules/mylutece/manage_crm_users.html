@@ -32,20 +32,34 @@
                     </tr>
                     <#list listCRMUsers as user>
                     <tr>
-                        <td>${user.idCRMUser!}</td>
-                        <td>${user.userGuid!}</td>
+                        <td>
+                       		${user.idCRMUser!}
+                        </td>
+                        <td>
+                        	<#if user.isAnonymized(  )>
+                        		#i18n{module.crm.mylutece.manage_crm_users.labelAnonymized}
+                        	<#else>
+                        		${user.userGuid!}
+                        	</#if>
+                        </td>
                         <#list listAttributeKeys as attributeKey>
 		            	<td>
-		            		${user.getUserAttributeValue(attributeKey! )!}
+		            		<#if user.isAnonymized(  )>
+                        		#i18n{module.crm.mylutece.manage_crm_users.labelAnonymized}
+                        	<#else>
+		            			${user.getUserAttributeValue(attributeKey! )!}
+                        	</#if>
 		            	</td>
 						</#list>
                         <td>
-                        	<a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmAnonymizeCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelAnonymize}">
-                            	<i class="icon-eye-close icon-white"></i>
-                            </a>
-                            <a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmReinitPassword.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelReinitPassword}">
-                            	<i class="icon-refresh icon-white"></i>
-                            </a>
+                        	<#if !user.isAnonymized(  )>
+	                        	<a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmAnonymizeCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelAnonymize}">
+	                            	<i class="icon-eye-close icon-white"></i>
+	                            </a>
+	                            <a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmReinitPassword.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelReinitPassword}">
+	                            	<i class="icon-refresh icon-white"></i>
+	                            </a>
+							</#if>
                             <a class="btn btn-danger btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmRemoveCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{portal.util.labelDelete}">
                             	<i class="icon-trash icon-white"></i>
                             </a>

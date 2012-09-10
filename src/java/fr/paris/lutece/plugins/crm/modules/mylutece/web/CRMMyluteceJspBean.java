@@ -35,11 +35,14 @@ package fr.paris.lutece.plugins.crm.modules.mylutece.web;
 
 import fr.paris.lutece.plugins.crm.business.user.CRMUser;
 import fr.paris.lutece.plugins.crm.modules.mylutece.service.MyLuteceUserManager;
+import fr.paris.lutece.plugins.crm.service.security.CRMUserAnonymizationService;
+import fr.paris.lutece.plugins.crm.service.security.IAnonymizationService;
 import fr.paris.lutece.plugins.crm.service.user.CRMUserAttributesService;
 import fr.paris.lutece.plugins.crm.service.user.CRMUserService;
 import fr.paris.lutece.portal.service.admin.AccessDeniedException;
 import fr.paris.lutece.portal.service.message.AdminMessage;
 import fr.paris.lutece.portal.service.message.AdminMessageService;
+import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.portal.service.util.AppPathService;
 import fr.paris.lutece.portal.web.admin.PluginAdminPageJspBean;
@@ -96,6 +99,7 @@ public class CRMMyluteceJspBean extends PluginAdminPageJspBean
     private CRMMyLuteceSearchFields _userSearchFields = new CRMMyLuteceSearchFields(  );
     private CRMUserService _crmUserService = CRMUserService.getService(  );
     private CRMUserAttributesService _crmUserAttributesService = CRMUserAttributesService.getService(  );
+    private IAnonymizationService _anonymizationService = SpringContextService.getBean( CRMUserAnonymizationService.BEAN_SERVICE );
 
     /**
      * Gets the manage my lutece users.
@@ -236,6 +240,7 @@ public class CRMMyluteceJspBean extends PluginAdminPageJspBean
 
         if ( user != null )
         {
+            _anonymizationService.anonymizeUser( user.getIdCRMUser(  ), getLocale(  ) );
             MyLuteceUserManager.doAnonymizeMyLuteceUser( user.getUserGuid(  ), request, getLocale(  ) );
         }
 
