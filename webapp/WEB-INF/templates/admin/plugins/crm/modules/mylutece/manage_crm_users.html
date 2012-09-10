@@ -1,10 +1,3 @@
-<#function getAttributeValue map attributeKey>
-	<#if map?? && map?has_content>
-		<#return map[attributeKey!] />
-	</#if>
-	<#return "" />
-</#function>
-
 <div class="row">
     <div class="container">
         <div class="span12">
@@ -16,7 +9,7 @@
 						<input type="text" id="userGuid" name="userGuid" value="${filter.userGuid!}" maxlength="255" size="100" tabindex="2" />
 						<#list listAttributeKeys as attributeKey>
 							<label for="${attributeKey!}">#i18n{portal.security.${attributeKey!}} :</label>
-							<input type="text" id="${attributeKey!}" name="${attributeKey!}" value="${getAttributeValue( filter.userAttributes!, attributeKey! )!}" />
+							<input type="text" id="${attributeKey!}" name="${attributeKey!}" value="${filter.getUserAttributeValue( attributeKey! )!}" />
 						</#list>
 	                    <button class="btn btn-primary" type="submit" ><i class="icon-search icon-white"></i>#i18n{module.crm.mylutece.button.search}</button>
 	                </form>
@@ -43,7 +36,7 @@
                         <td>${user.userGuid!}</td>
                         <#list listAttributeKeys as attributeKey>
 		            	<td>
-		            		${getAttributeValue( user.userAttributes!, attributeKey! )!}
+		            		${user.getUserAttributeValue(attributeKey! )!}
 		            	</td>
 						</#list>
                         <td>
