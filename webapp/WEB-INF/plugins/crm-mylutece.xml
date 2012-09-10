@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
+
+    <!-- Plugin Informations -->
+    <name>crm-mylutece</name>
+    <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
+    <version>1.0.0</version>
+    <description>module.crm.mylutece.module.description</description>
+    <provider>module.crm.mylutece.module.provider</provider>
+    <documentation/>
+    <installation/>
+    <changes/>
+    <user-guide/>
+    <provider-url>http://lutece.paris.fr</provider-url>
+    <icon-url>images/admin/skin/plugins/crm/modules/mylutece/crm-mylutece.png</icon-url>
+    <copyright>Copyright 2001-2012 Mairie de Paris</copyright>
+    <core-version-dependency>
+        <min-core-version>3.1.6</min-core-version>
+        <max-core-version/>
+    </core-version-dependency>
+
+    <!-- if the plugin must have a connection pool with parameter : 1 - yes, 0 - no -->
+    <db-pool-required>0</db-pool-required>
+
+	<!-- Administration interface parameters -->
+    <admin-features>
+        <admin-feature>
+            <feature-id>CRM_MYLUTECE_MANAGEMENT</feature-id>
+            <feature-title>module.crm.mylutece.adminFeature.crm_mylutece_user_management.name</feature-title>
+            <feature-description>module.crm.mylutece.adminFeature.crm_mylutece_user_management.description</feature-description>
+            <feature-level>1</feature-level>
+            <feature-group>USERS</feature-group>
+            <feature-url>jsp/admin/plugins/crm/modules/mylutece/ManageCRMUsers.jsp</feature-url>
+        </admin-feature>
+    </admin-features>
+</plug-in>
