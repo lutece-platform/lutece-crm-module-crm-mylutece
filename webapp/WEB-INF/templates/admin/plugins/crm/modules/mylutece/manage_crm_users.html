@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row-fluid">
     <div class="container">
         <div class="span12">
             <fieldset>
@@ -54,14 +54,14 @@
 						</#list>
                         <td>
                         	<#if !user.isAnonymized(  )>
-	                        	<a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmAnonymizeCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelAnonymize}">
+	                        	<a class="btn btn-primary btn-small" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmAnonymizeCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelAnonymize}">
 	                            	<i class="icon-eye-close icon-white"></i>
 	                            </a>
-	                            <a class="btn btn-primary btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmReinitPassword.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelReinitPassword}">
+	                            <a class="btn btn-primary btn-small" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmReinitPassword.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{module.crm.mylutece.manage_crm_users.labelReinitPassword}">
 	                            	<i class="icon-refresh icon-white"></i>
 	                            </a>
 							</#if>
-                            <a class="btn btn-danger btn-mini" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmRemoveCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{portal.util.labelDelete}">
+                            <a class="btn btn-danger btn-small" href="jsp/admin/plugins/crm/modules/mylutece/ConfirmRemoveCRMUser.jsp?idCRMUser=${user.idCRMUser!}" title="#i18n{portal.util.labelDelete}">
                             	<i class="icon-trash icon-white"></i>
                             </a>
                         </td>
