@@ -3,7 +3,7 @@
     <!-- Plugin Informations -->
     <name>crm-mylutece</name>
     <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <description>module.crm.mylutece.module.description</description>
     <provider>module.crm.mylutece.module.provider</provider>
     <documentation/>
